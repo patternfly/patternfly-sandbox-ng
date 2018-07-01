@@ -1,0 +1,16 @@
+import { ListConfigBase } from 'patternfly-ng/list';
+
+/**
+ * A config containing properties for tree list
+ */
+export class TreeListConfig extends ListConfigBase {
+  /**
+   * Indent children by the given value in pixels
+   */
+  indentChildren?: number;
+
+  /**
+   * For angular-tree-component options, see: https://angular2-tree.readme.io/docs
+   */
+  treeOptions?: any;
+}

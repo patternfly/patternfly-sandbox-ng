@@ -1,0 +1,43 @@
+language: node_js
+node_js:
+  - '8'
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+  
+notifications:
+  email: false
+
+env:
+  global:
+    - ENCRYPTION_LABEL: "a8c5e363dc84"
+    - COMMIT_AUTHOR_EMAIL: "patternfly-build@redhat.com"
+    - TRIGGER_REPO_SLUG: "patternfly/patternfly-sandbox-ng"
+    - TRIGGER_REPO_BRANCH: "master"
+
+before_install:
+  - npm install patternfly-eng-release
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+install: true
+
+script:
+  - sh -x ./node_modules/patternfly-eng-release/scripts/_build.sh -x
+
+after_success:
+  - 'if [[ "$TRAVIS_SECURE_ENV_VARS" = "true" && "$TRAVIS_BRANCH" = "master-dist" ]]; then
+       npm run semantic-release-pre;
+       sh -x ./node_modules/patternfly-eng-release/scripts/semantic-release/_publish-npm.sh || travis_terminate 0;
+       npm run semantic-release-post;
+     fi'
+  - npm run publish-travis
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

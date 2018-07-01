@@ -7,9 +7,9 @@ Welcome to the PatternFly-Ng sandbox.  This is a library of common Angular compo
 - Build Status: https://travis-ci.org/patternfly/patternfly-sandbox-ng.svg?branch=master
 
 
-### Using PatternFly-ng In Your Application
+### Using the PatternFly-Ng sandbox In Your Application
 
-This example demonstrates using the Angular-cli to get started with PatternFly-ng
+This example demonstrates using the Angular-cli to get started with the PatternFly-Ng sandbox
 
 1. Installing angular-cli  
 *Note*: you can skip this part if you already have generated an Angular application using `ng-cli` and webpack
@@ -57,7 +57,7 @@ import { NotificationModule } from 'patternfly-sandbox-ng';
 
         "./node_modules/patternfly/dist/css/patternfly.min.css",
         "./node_modules/patternfly/dist/css/patternfly-additions.min.css",
-        "./node_modules/patternfly-sandbox-ng/dist/css/patternfly-ng.min.css",
+        "./node_modules/patternfly-ng/dist/css/patternfly-ng.min.css",
         "./node_modules/patternfly-sandbox-ng/dist/css/patternfly-sandbox-ng.min.css",
         "styles.css",
       ],
@@ -84,7 +84,7 @@ import { NotificationModule } from 'patternfly-sandbox-ng';
         "./node_modules/dragula/dist/dragula.min.css",
         "./node_modules/patternfly/dist/css/patternfly.min.css",
         "./node_modules/patternfly/dist/css/patternfly-additions.min.css",
-        "./node_modules/patternfly-sandbox-ng/dist/css/patternfly-ng.min.css",
+        "./node_modules/patternfly-ng/dist/css/patternfly-ng.min.css",
         "./node_modules/patternfly-sandbox-ng/dist/css/patternfly-sandbox-ng.min.css",
         "styles.css",
       ],

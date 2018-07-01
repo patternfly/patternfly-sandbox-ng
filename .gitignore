@@ -1,0 +1,10 @@
+.idea
+.DS_Store
+.vscode
+dist
+dist-demo
+node_modules
+build
+npm-debug.log
+src/**/*.css
+build-aot
