@@ -12,7 +12,7 @@ import { TabDirective } from 'ngx-bootstrap/tabs';
   templateUrl: './tree-list-example.component.html'
 })
 export class TreeListExampleComponent implements OnInit {
-  activeTab: string = '';
+  activeTab = '';
 
   constructor() {
   }

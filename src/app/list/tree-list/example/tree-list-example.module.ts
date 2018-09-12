@@ -6,11 +6,12 @@ import { TabsetConfig, TabsModule } from 'ngx-bootstrap/tabs';
 import { TreeModule } from 'angular-tree-component';
 
 import { ActionModule } from 'patternfly-ng/action';
-import { DemoComponentsModule } from '../../../../demo/components/demo-components.module';
 import { TreeListBasicExampleComponent } from './tree-list-basic-example.component';
 import { TreeListDndExampleComponent } from './tree-list-dnd-example.component';
 import { TreeListExampleComponent } from './tree-list-example.component';
-import { TreeListModule } from '../tree-list.module';
+import { TreeListModule } from 'patternfly-sandbox-ng';
+import { DemoComponentsModule } from '../../../components/demo-components.module';
+
 
 @NgModule({
   declarations: [

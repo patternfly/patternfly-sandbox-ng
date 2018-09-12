@@ -11,8 +11,7 @@ import { cloneDeep } from 'lodash';
 import { Action, ActionConfig } from 'patternfly-ng/action';
 import { EmptyStateConfig } from 'patternfly-ng/empty-state';
 import { ListEvent } from 'patternfly-ng/list';
-import { TreeListComponent } from '../tree-list.component';
-import { TreeListConfig } from '../tree-list-config';
+import { TreeListComponent, TreeListConfig} from 'patternfly-sandbox-ng';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
