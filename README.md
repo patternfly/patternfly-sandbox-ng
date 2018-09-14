@@ -11,9 +11,9 @@ Welcome to the PatternFly-Ng sandbox.  This is a library of common Angular compo
 
 This example demonstrates using the Angular-cli to get started with the PatternFly-Ng sandbox
 
-1. Installing angular-cli  
+1. Installing angular-cli
 *Note*: you can skip this part if you already have generated an Angular application using `ng-cli` and webpack
-  
+
  ```bash
  npm i -g @angular/cli
  ng new patternfly-sandbox-ng-app
@@ -26,31 +26,34 @@ This example demonstrates using the Angular-cli to get started with the PatternF
      npm install patternfly-sandbox-ng --save
    ```
 
-3. Add patternfly-sandbox-ng dependencies
- 
- - install `patternfly`
+3. Add patternfly-ng dependencies
+
+ - install `patternfly` and `patterfly-ng` (if required)
 
  ```bash
    npm install patternfly --save
+   npm install patternfly-ng --save
  ```
- 
+
 4. Add a patternfly-sandbox-ng component
 - open `src/app/app.module.ts` and add
 
 ```typescript
-import { NotificationModule } from 'patternfly-sandbox-ng/notification';
-// Or
-import { NotificationModule } from 'patternfly-sandbox-ng';
+import { TreeListModule } from 'patternfly-sandbox-ng';
 ...
 
 @NgModule({
    ...
-   imports: [NotificationModule, ... ],
-    ... 
+  imports: [
+    BrowserModule,
+    TreeListModule,
+    ...
+  ],
+    ...
 })
 ```
 
-- open `angular.json` and insert a new entry into the styles array 
+- open `angular.json` and insert a new entry into the styles array
 
 ```json
       "styles": [
@@ -65,19 +68,45 @@ import { NotificationModule } from 'patternfly-sandbox-ng';
 
 - open `src/app/app.component.html` and add
 ```
-<pfng-toast-notification
-  [header]="'test header'"
-  [message]="'this is a notification'"
-  [showClose]="'true'"
-  [type]="'success'">
-</pfng-toast-notification>
-```
+<pfng-tree-list #treeList
+                [actionTemplate]="actionTemplate"
+                [config]="treeListConfig"
+                [itemTemplate]="itemTemplate"
+                [items]="items"
+                [loadTemplate]="loadTemplate"
+>
+    <ng-template #loadTemplate let-node="node" let-index="index">
+        <span>Loading...</span>
+    </ng-template>
+    <ng-template #itemTemplate let-node="node" let-index="index">
+        <div class="list-pf-left">
+            <span class="fa list-pf-icon list-pf-icon-bordered list-pf-icon-small"></span>
+        </div>
+        <div class="list-pf-content-wrapper">
+            <div class="list-pf-main-content">
+                <div class="list-pf-title">NAME</div>
+                <div class="list-pf-description text-overflow-pf">ADDRESS</div>
+            </div>
+            <div class="list-pf-additional-content">
+                <div>
+                    <span class="pficon pficon-screen"></span>
+                    <strong>Some content</strong> Hosts
+                </div>
 
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #actionTemplate let-node="node" let-index="index">
+        some action
+    </ng-template>
+</pfng-tree-list>
+```
+where items is an memeber of your component
 ### Optional Dependencies
 
 1. To enable table drag and drop, add dragula.min.css from the ng2-dragula package
 
-- open `angular.json` and insert a new entry into the styles array 
+- open `angular.json` and insert a new entry into the styles array
 
 ```json
       "styles": [
@@ -92,7 +121,7 @@ import { NotificationModule } from 'patternfly-sandbox-ng';
 
 2. To enable charts, add patternfly-settings.js from the patternfly package
 
-- open `angular.json` and insert a new entry into the scripts array 
+- open `angular.json` and insert a new entry into the scripts array
 
 ```json
       "scripts": [

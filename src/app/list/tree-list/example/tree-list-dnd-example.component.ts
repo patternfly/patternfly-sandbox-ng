@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import { Action, ActionConfig } from 'patternfly-ng/action';
-import { TreeListConfig } from '../tree-list-config';
+import { TreeListConfig } from 'patternfly-sandbox-ng';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
