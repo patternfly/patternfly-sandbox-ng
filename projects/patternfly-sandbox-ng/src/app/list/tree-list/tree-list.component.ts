@@ -58,7 +58,8 @@ import { TreeListConfig } from './tree-list-config';
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'pfng-tree-list',
-  templateUrl: './tree-list.component.html'
+  templateUrl: './tree-list.component.html',
+  styleUrls: ['./tree-list.component.less']
 })
 
 export class TreeListComponent extends ListBase implements DoCheck, OnInit {
